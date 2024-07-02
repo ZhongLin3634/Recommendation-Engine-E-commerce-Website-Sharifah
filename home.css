@@ -1,0 +1,204 @@
+.my-carousel-container {
+    
+    overflow: hidden;
+}
+
+#myCarousel .carousel-inner {
+    height: 100%;
+}
+
+#myCarousel .carousel-item {
+    height: 100%;
+}
+
+#myCarousel img {
+    object-fit: cover;
+    height: 100%;
+    max-height: 70vh;
+}
+
+header {
+    background-color: #f8f9fa;
+    padding: 10px 0;
+}
+
+.navbar-brand,
+.navbar-nav .nav-link {
+    color: #007bff !important;
+    transition: color 0.3s ease;
+}
+
+.navbar-nav .nav-item:hover .nav-link {
+    color: #0056b3 !important;
+}
+
+.navbar-brand:hover img {
+    filter: brightness(80%);
+}
+
+.fixed-footer {
+    width: 100%;
+    background-color: #343a40;
+    color: #ffffff;
+    padding: 10px 0;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.product-category {
+    text-align: center;
+    margin-top: 20px;
+    width: 100%; /* Set a wider width for the product category */
+    margin: 0 auto; /* Center the product category horizontally */
+}
+
+.product-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: 20px 0;
+    animation: fadeInUp 1s; /* Add fadeInUp animation to product-container */
+}
+.card {
+    /* Existing styles for card */
+    width: 200px;
+    margin: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-out;
+    animation: fadeIn 1s; /* Add fadeIn animation to each card */
+    border-radius: 20%;
+
+
+    /* New styles for the link */
+    .card-link {
+        display: block;
+        text-decoration: none;
+        color: inherit; /* Inherit text color from parent */
+    }
+
+    img {
+        width: 100%;
+        height: 150px;
+        object-fit: cover;
+        border-top-left-radius: 20%;
+        border-top-right-radius: 20%;
+    }
+
+    .card-details {
+        padding: 10px;
+        text-align: left; /* Align text to the left */
+    }
+
+    .product-name {
+        font-size: 1.2em;
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+
+    .product-price {
+        font-size: 1.1em;
+        color: #007bff; /* Price color */
+        margin-bottom: 5px;
+    }
+
+    .product-sold {
+        font-size: 1em;
+        color: #888; /* Sold count color */
+        margin-bottom: 10px;
+    }
+
+    .rating {
+        /* Styles for the rating stars */
+    }
+
+    .button-container {
+        /* Styles for the button container */
+    }
+}
+
+
+.add-to-cart,
+.view-details {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.add-to-cart:hover,
+.view-details:hover {
+    background-color: #45a049;
+}
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+    .product-container {
+        justify-content: center;
+    }
+
+    .card {
+        width: 80%; /* Adjust card width for smaller screens */
+    }
+}
+/* Modal Header */
+.modal-header {
+    background-color: #007bff;
+    color: white;
+    text-align: center;
+    
+}
+
+/* Modal Body */
+.modal-body {
+    text-align: center;
+}
+
+/* Modal Image */
+.modal-body img {
+    width: 100%;
+    max-height: 300px; /* Set a max height for the image */
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+/* Modal Footer */
+.modal-footer {
+    background-color: #f8f9fa;
+}
+
+/* "Buy Now" Button */
+.modal-footer .btn-primary {
+    background-color: #28a745;
+    border-color: #28a745;
+}
+
+/* Close Button */
+.close {
+    color: white;
+}
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

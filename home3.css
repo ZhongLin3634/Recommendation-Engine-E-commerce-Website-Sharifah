@@ -1,0 +1,46 @@
+.my-carousel-container {
+    max-height: 60vh;
+    overflow: hidden;
+}
+
+#myCarousel .carousel-inner {
+    height: 100%;
+}
+
+#myCarousel .carousel-item {
+    height: 100%;
+}
+
+#myCarousel img {
+    object-fit: cover;
+    height: 100%;
+}
+
+header {
+    background-color: #f8f9fa;
+    padding: 10px 0;
+}
+
+.navbar-brand,
+.navbar-nav .nav-link {
+    color: #007bff !important;
+    transition: color 0.3s ease;
+}
+
+.navbar-nav .nav-item:hover .nav-link {
+    color: #0056b3 !important;
+}
+
+.navbar-brand:hover img {
+    filter: brightness(80%);
+}
+
+.fixed-footer {
+    width: 100%;
+    background-color: #343a40;
+    color: #ffffff;
+    padding: 10px 0;
+    text-align: center;
+    margin-top: 20px;
+}
+

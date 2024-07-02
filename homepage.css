@@ -1,0 +1,87 @@
+/* Add these styles to your existing style.css or create a new stylesheet */
+.big-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* Adjust as needed */
+}
+
+.centered-box {
+    background-color: #ddd; /* Adjust as needed */
+    padding: 20px;
+    text-align: center;
+}
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.fixed-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #333; /* Set a background color for the header */
+    color: #fff; /* Set text color for the links */
+    padding: 10px; /* Add padding to the header */
+}
+
+.fixed-header nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: row; /* 将方向设置为行，确保水平布局 */
+}
+
+.fixed-header nav ul li {
+    margin-right: 15px;
+}
+
+.fixed-header nav ul li:last-child {
+    margin-right: 0;
+}
+
+.fixed-header nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+
+main {
+    padding-top: 60px; /* Adjust the padding to match the height of your fixed header */
+}
+
+.fixed-footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+}
+.container.big-section {
+    height: 100vh; /* Set the height to 100% of the viewport height */
+    width: 100%;   /* Set the width to 100% of the viewport width */}
+
+.my-carousel-container {
+    height: 80%; /* Adjust the height as needed */
+    overflow: hidden;
+}
+
+#myCarousel .carousel-inner {
+    height: 100%;
+}
+
+#myCarousel .carousel-item {
+    height: 100%;
+}
+
+#myCarousel img {
+    object-fit: cover;
+    height: 100%;
+}

@@ -1,0 +1,67 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    height: 100vh;
+    background: url('Product Image/Slide.jpg') center/cover no-repeat; /* Specify the path to your background image */
+}
+
+.login-container {
+    background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white background for better readability */
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 300px;
+    margin: auto; /* Center the container horizontally */
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.login-container h2 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.login-container label {
+    display: block;
+    text-align: left;
+    margin-bottom: 8px;
+    color: #555;
+}
+
+.login-container input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 16px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.login-container input[type="submit"] {
+    background-color: #3498db;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.login-container input[type="submit"]:hover {
+    background-color: #2980b9;
+}
+
+.login-container p {
+    color: #e74c3c;
+    margin-top: 10px;
+}
+
+.login-container a {
+    text-decoration: none;
+    color: #3498db;
+    transition: color 0.3s;
+}
+
+.login-container a:hover {
+    text-decoration: underline;
+    color: #2980b9;
+}

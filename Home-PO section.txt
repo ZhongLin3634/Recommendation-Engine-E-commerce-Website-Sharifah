@@ -1,0 +1,126 @@
+<div class="product-category"id="PO"><!--PO-->
+<?php
+$products = [
+    ["id"=>"PKKI","name"=>"Pes Kari Kepala Ikan","image_url"=>"Product Image/NBGA.jpg"],
+    ["id"=>"PNGK","name"=>"Pes Nasi Goreng Kampung","image_url"=>"Product Image/NBGA.jpg"],
+    ["id"=>"PNBG","name"=>"Pes Nasi Briyani Gam","image_url"=>"Product Image/NBGA.jpg"],
+    ["id"=>"PMK","name"=>"Pes Masak Keruntuk","image_url"=>"Product Image/NBGA.jpg"],
+    ["id"=>"PST","name"=>"Pes Sambal Tumis ","image_url"=>"Product Image/NBGA.jpg"],
+    ["id"=>"PAP","name"=>"Pes Asam Pedas","image_url"=>"Product Image/NBGA.jpg"],
+    ["id"=>"PMTR","name"=>"Pes Masak Tiga Rasa","image_url"=>"Product Image/NBGA.jpg"],
+    ["id"=>"PMG","name"=>"Pes Mi Goreng","image_url"=>"Product Image/NBGA.jpg"],
+    ["id"=>"TGA","name"=>"Tepuung Goreng Ayam","image_url"=>"Product Image/NBGA.jpg"],
+    ["id"=>"TGR","name"=>"Tepung Goreng Rangup","image_url"=>"Product Image/NBGA.jpg"],
+    ["id"=>"Santan","name"=>"Santan","image_url"=>"Product Image/NBGA.jpg"],
+
+
+
+];
+// Generate HTML
+echo '<div class="product-category">';
+echo '<h2 style="animation: hotEffect 2s infinite; cursor: pointer;" onmouseover="this.style.transform=\'scale(1.1)\'" onmouseout="this.style.transform=\'scale(1)\'">Paste & Other </h2>'; // Add inline style and hover effect for h2
+echo '<div class="product-container">';
+
+// Counter for tracking products per row
+$product_count = 0;
+
+// Iterate over products
+foreach ($products as $product) {
+    // Start a new row if the product count is divisible by 5
+    if ($product_count % 5 === 0) {
+        echo '<div class="row">';
+    }
+
+    // Output product card with link including product name and image
+    echo '<div class="card">';
+    echo '<a href="product_details.php?id=' . $product["id"] . '&name=' . urlencode($product["name"]) . '" class="card-link">';
+    echo '<img src="' . $product["image_url"] . '" alt="' . $product["name"] . '" class="card-img">';
+    echo '<div class="card-details">';
+    echo '<p class="product-name">' . $product["name"] . '</p>'; // Display product name instead of ID
+    echo '</div></a></div>';
+
+    // Increment product count
+    $product_count++;
+
+    // Close the row if the product count reaches 5
+    if ($product_count % 5 === 0) {
+        echo '</div>'; // Close the row
+    }
+}
+
+// Close the row if the last row has less than 5 products
+if ($product_count % 5 !== 0) {
+    echo '</div>'; // Close the row
+}
+
+echo '</div></div>'; // Close the product-container and product-category divs
+
+?>
+</div>
+
+<div class="product-category"><!--PO-->
+<?php
+$products = [
+    ["id"=>"PKKI","name"=>"Pes Kari Kepala Ikan","image_url"=>"Product Image/NBGA.jpg"],
+    ["id"=>"PNGK","name"=>"Pes Nasi Goreng Kampung","image_url"=>"Product Image/NBGA.jpg"],
+    ["id"=>"PNBG","name"=>"Pes Nasi Briyani Gam","image_url"=>"Product Image/NBGA.jpg"],
+    ["id"=>"PMK","name"=>"Pes Masak Keruntuk","image_url"=>"Product Image/NBGA.jpg"],
+    ["id"=>"PST","name"=>"Pes Sambal Tumis ","image_url"=>"Product Image/NBGA.jpg"],
+    ["id"=>"PAP","name"=>"Pes Asam Pedas","image_url"=>"Product Image/NBGA.jpg"],
+    ["id"=>"PMTR","name"=>"Pes Masak Tiga Rasa","image_url"=>"Product Image/NBGA.jpg"],
+    ["id"=>"PMG","name"=>"Pes Mi Goreng","image_url"=>"Product Image/NBGA.jpg"],
+    ["id"=>"TGA","name"=>"Tepuung Goreng Ayam","image_url"=>"Product Image/NBGA.jpg"],
+    ["id"=>"TGR","name"=>"Tepung Goreng Rangup","image_url"=>"Product Image/NBGA.jpg"],
+    ["id"=>"Santan","name"=>"Santan","image_url"=>"Product Image/NBGA.jpg"],
+];
+
+// Generate HTML
+echo '<div class="product-category">';
+echo '<h2 style="animation: hotEffect 2s infinite; cursor: pointer;" onmouseover="this.style.transform=\'scale(1.1)\'" onmouseout="this.style.transform=\'scale(1)\'">Paste & Other </h2>'; // Add inline style and hover effect for h2
+echo '<div class="product-container">';
+
+// Iterate over products
+foreach ($products as $product) {
+    // Output product card with link including product name and image
+    echo '<div class="card">';
+    echo '<a href="product_details.php?id=' . $product["id"] . '&name=' . urlencode($product["name"]) . '" class="card-link">';
+    echo '<img src="' . $product["image_url"] . '" alt="' . $product["name"] . '" class="card-img">';
+    echo '<div class="card-details">';
+    echo '<p class="product-name">' . $product["name"] . '</p>'; // Display product name instead of ID
+    echo '</div></a></div>';
+}
+
+echo '</div></div>'; // Close the product-container and product-category divs
+?>
+</div>
+<div class="product-category"><!--PO-->
+<?php
+$products = [
+    ["id"=>"1","name"=>"NGK with NGD","image_url"=>"Product Image/NBGA.jpg","description"=>"NGK with NGD"],
+    ["id"=>"2","name"=>"NGU with NGD","image_url"=>"Product Image/NBGA.jpg","description"=>"NGU with NGD"],
+    ["id"=>"3","name"=>"NGA with NGD","image_url"=>"Product Image/NBGA.jpg","description"=>"NGA with NGD"],
+    ["id"=>"4","name"=>"NGK with NGA","image_url"=>"Product Image/NBGA.jpg","description"=>"NGK with NGA"],
+    ["id"=>"5","name"=>"NGK with NGD","image_url"=>"Product Image/NBGA.jpg","description"=>"NGK with NGU"],
+];
+
+// Generate HTML
+echo '<div class="product-category">';
+echo '<h2 style="animation: hotEffect 2s infinite; cursor: pointer;" onmouseover="this.style.transform=\'scale(1.1)\'" onmouseout="this.style.transform=\'scale(1)\'">Bundle Set </h2>'; // Add inline style and hover effect for h2
+echo '<div class="product-container">';
+
+// Iterate over products
+foreach ($products as $product) {
+    // Output product card with link including product name and image
+    echo '<div class="card">';
+    echo '<a href="product_details.php?id=' . $product["id"] . '&name=' . urlencode($product["name"]) . '" class="card-link">';
+    echo '<img src="' . $product["image_url"] . '" alt="' . $product["name"] . '" class="card-img">';
+    echo '<div class="card-details">';
+    echo '<p class="product-name">' . $product["name"] . '</p>'; // Display product name instead of ID
+    echo '</div></a></div>';
+}
+
+echo '</div></div>'; // Close the product-container and product-category divs
+?>
+</div>
+*/
+?>

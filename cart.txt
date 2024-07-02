@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="cart2.css">
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const checkboxes = document.querySelectorAll('input[name="selectedProducts[]"]');
+            const quantityInputs = document.querySelectorAll('input[name^="quantity"]');
+            const colorSelects = document.querySelectorAll('select[name^="color"]');
+            const totalPriceDisplay = document.querySelector('.total-price');
+
+            checkboxes.forEach(function (checkbox) {
+                checkbox.addEventListener('change', updateTotalPrice);
+            });
+
+            quantityInputs.forEach(function (input) {
+                input.addEventListener('input', updateTotalPrice);
+            });
+
+            colorSelects.forEach(function (select) {
+                select.addEventListener('change', updateTotalPrice);
+            });
+
+            function updateTotalPrice() {
+                let totalPrice = 0;
+
+                checkboxes.forEach(function (checkbox, index) {
+                    if (checkbox.checked) {
+                        const quantity = parseInt(quantityInputs[index].value);
+                        const price = parseFloat(checkbox.dataset.price);
+                        totalPrice += quantity * price;
+                    }
+                });
+
+                totalPriceDisplay.textContent = 'Total Price: RM' + totalPrice.toFixed(2);
+            }
+        });
+    </script>
+</head>
+
+<body>
+
+    <header>
+        <!-- Navigation Bar -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="Home.php">Sharifah Ready to Eat</a>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="Home.php">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="cart.php">Cart</a>
+                    </li>
+                </ul>
+            </div>
+            <div>
+                <a class="navbar-brand" href="cart.php">
+                    <img src="cart.png" alt="Add to Cart" width="30" height="30">
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <h2>Your Cart</h2>
+                
+                <div class="cart-items">
+                <?php
+// Start session to manage the cart
+session_start();
+$total_amount = 0;
+
+// Check if cart session variable exists and is not empty
+if (isset($_SESSION['cart']) && !empty($_SESSION['cart'])) {
+    // Database parameters
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    $databaseName = "user_sharifah";
+
+    // Create connection
+    $conn = new mysqli($servername, $username, $password, $databaseName);
+
+    // Check connection
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
+
+    // Initialize an array to store product IDs
+    $product_ids = array_keys($_SESSION['cart']);
+
+    // Retrieve product details based on product IDs
+    $sql = "SELECT Product_Code, Product_Name, Price,Product_Image_2 FROM product WHERE Product_Code IN ('" . implode("','", $product_ids) . "')";
+    $result = $conn->query($sql);
+
+    if ($result->num_rows > 0) {
+        // Display the products in the cart
+        while ($row = $result->fetch_assoc()) {
+            $product_id = $row['Product_Code'];
+            $product_name = $row['Product_Name'];
+            $product_price = $row['Price'];
+            $product_image = $row['Product_Image_2'];
+            $quantity = $_SESSION['cart'][$product_id];
+
+            // Calculate total price for each item
+            $total_price_per_item = $product_price * $quantity;
+            $total_amount += $total_price_per_item;
+
+        // Output product information
+        echo "<div class='cart-item'>";
+        echo "<div class='row'>";
+        echo "<div class='col-md-2'>";
+        echo "<img src='Product Image/$product_image' alt='$product_name' class='img-fluid'>"; // Product Image
+        echo "</div>";
+        echo "<div class='col-md-2'>";
+        echo "<p>$product_name</p>";
+        echo "</div>";
+        echo "<div class='col-md-2'>";
+        echo "<p>RM$product_price</p>";
+        echo "</div>";
+        echo "<div class='col-md-2'>";
+        echo "<input type='number' name='quantity[$product_id]' value='$quantity' min='1'>"; // Quantity input
+        echo "</div>";
+        echo "<div class='col-md-2'>";
+        echo "<input type='checkbox' name='selectedProducts[]' data-price='$product_price'>"; // Checkbox for product selection
+        echo "</div>";
+        echo "<div class='col-md-2'>";
+        echo "<form action='remove_from_cart.php' method='post'>";
+        echo "<input type='hidden' name='product_id' value='$product_id'>";
+        echo "<button type='submit' class='btn btn-danger'>Remove</button>";
+        echo "</form>";
+        echo "</div>";
+        echo "</div>"; // Closing row div
+        echo "</div>"; // Closing cart-item div
+            
+        }
+    } else {
+        // If no products found in the database
+        echo "No products found in the database.";
+    }
+
+    // Close the database connection
+    $conn->close();
+} else {
+    // If the cart is empty
+    echo "Your cart is empty.";
+}
+?>
+
+
+<!-- Output total amount -->
+<div class="total-price">Total Price: RM<?php echo $total_amount; ?></div>
+
+<!-- Payment Options form -->
+<div class="col-md-4">
+    <h2>Payment Options</h2>
+    <form action="process_payment.php" method="POST" id="paymentForm">
+        <input type="radio" name="payment_method" value="Bank Transfer"> Bank Transfer<br>
+        <input type="radio" name="payment_method" value="Visa/Credit Card"> Visa/Credit Card<br>
+        <input type="radio" name="payment_method" value="TNG"> TNG<br>
+        <input type="hidden" name="total_amount" value="<?php echo $total_amount; ?>"> <!-- Include total amount -->
+        <button type="submit" class="btn btn-primary">Proceed to Payment</button>
+    </form>
+</div>
+
+        </div>
+    </div>
+</div>
+</div>
+    <!-- Footer -->
+    <footer class="fixed-footer">
+        <p>&copy; <?php echo date("Y"); ?> Your Website. All rights reserved.</p>
+    </footer>
+
+</body>
+
+</html>

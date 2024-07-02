@@ -1,0 +1,33 @@
+/* Add your CSS styles for the cart page here */
+.container {
+    margin-top: 20px;
+}
+
+.cart-item {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.total-price {
+    margin-top: 20px;
+    font-weight: bold;
+}
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.cart-item-details {
+    flex-grow: 1;
+}
+
+.cart-item-checkbox {
+    margin-left: auto;
+}
+.product-image {
+    width: 100px; /* Adjust according to your design */
+    height: auto; /* Maintain aspect ratio */
+}

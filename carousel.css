@@ -1,0 +1,99 @@
+.my-carousel-container {
+    max-height: 60vh; /* Adjust the height as needed, using viewport height */
+    overflow: hidden;
+}
+
+#myCarousel .carousel-inner {
+    height: 100%; /* Occupy full height of .my-carousel-container */
+}
+
+#myCarousel .carousel-item {
+    height: 100%; /* Occupy full height of .carousel-inner */
+}
+
+#myCarousel img {
+    object-fit: cover;
+    height: 100%; /* Maintain image aspect ratio */
+}
+header {
+    background-color: #f8f9fa; /* Set your desired background color */
+    padding: 10px 0; /* Adjust padding as needed */
+}
+
+.navbar-brand,
+.navbar-nav .nav-link {
+    color: #007bff !important; /* Set your desired text color */
+}
+
+/* Footer Styles */
+.fixed-footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #343a40; /* Set your desired background color */
+    color: #ffffff; /* Set your desired text color */
+    padding: 10px 0; /* Adjust padding as needed */
+    text-align: center;
+}
+.product-category {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.product-category h2 {
+    margin-bottom: 10px;
+}
+
+.product-container {
+    display: inline-block;
+}
+
+.container {
+    text-align: center;
+    width: 250px;
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+    padding: 15px;
+    margin: 10px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #fff;
+    transition: box-shadow 0.3s ease;
+}
+
+.container:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.container img {
+    max-width: 100%;
+    max-height: 70%;
+    object-fit: cover;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #ddd;
+}
+
+.product-name {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.product-price {
+    color: #555;
+}
+
+.add-to-cart {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.add-to-cart:hover {
+    background-color: #45a049;
+}

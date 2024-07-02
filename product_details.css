@@ -1,0 +1,99 @@
+.product-details-container {
+    margin-top: 30px;
+    padding: 30px;
+    background-color: #ffffff;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    margin-bottom:30px;
+    height:100%;
+
+}
+
+.product-details h2 {
+    color: #007bff;
+    margin-bottom: 20px;
+}
+
+.product-details label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.product-details input,
+.product-details textarea,
+.product-details select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.product-details button {
+    background-color: #28a745;
+    color: #ffffff;
+    padding: 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.product-details button:hover {
+    background-color: #218838;
+}
+
+/* Maintain same size for main image */
+.product-details-container .row .col-md-6 img {
+    width: 100%;
+    height: 350px; /* Adjust the height as needed */
+    object-fit: cover;
+    border-radius: 1.5rem;
+}
+
+/* Maintain same size for additional images */
+.product-details-container .row .col-3 img {
+    width: 100%;
+    height: 100px; /* Adjust the height as needed */
+    object-fit: cover;
+    border-radius: 1.5rem;
+}
+
+/* Ensure the overall container size */
+.product-details-container .row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.product-details-container .row .col-md-6,
+.product-details-container .row .col-3 {
+    flex: 1;
+    margin-right: 15px; /* Adjust margin as needed */
+    margin-bottom:15px;
+}
+.card-container {
+    width: 200px; /* Adjust this width as needed */
+    margin-bottom: 20px; /* Adjust spacing between cards */
+}
+
+.card-img-top {
+    width: 100%;
+    height: auto;
+}
+/* Define the animation */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Apply the animation to the button */
+.add-to-cart-animation {
+    animation: pulse 0.5s ease;
+}

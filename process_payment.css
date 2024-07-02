@@ -1,0 +1,52 @@
+/* process_payment.css */
+
+/* Body styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    padding-top: 70px;
+}
+
+/* Container styles */
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+/* Title styles */
+h2 {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Payment method styles */
+.payment-method {
+    margin-bottom: 20px;
+}
+
+.payment-method label {
+    font-weight: 500;
+}
+
+/* Payment confirmation styles */
+.payment-confirmation {
+    margin-top: 30px;
+    text-align: center;
+    font-size: 18px;
+    color: #28a745; /* Green color for success message */
+}
+
+/* Footer styles */
+.fixed-footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #343a40;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+}
